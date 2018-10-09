@@ -1,0 +1,48 @@
+﻿using System;
+using System.Runtime.CompilerServices;
+using BlackJack.ProjectL.UI;
+using SLua;
+using UnityEngine.Scripting;
+
+// Token: 0x02001466 RID: 5222
+[Preserve]
+public class Lua_BlackJack_ProjectL_UI_GiftStoreCancelBuyNetTask : LuaObject
+{
+	// Token: 0x0601E271 RID: 123505 RVA: 0x009ABEA8 File Offset: 0x009AA0A8
+	[Preserve]
+	[MonoPInvokeCallback(typeof(LuaCSFunction))]
+	public static int constructor(IntPtr l)
+	{
+		int result;
+		try
+		{
+			int giftStoreItemid;
+			LuaObject.checkType(l, 2, out giftStoreItemid);
+			GiftStoreCancelBuyNetTask o = new GiftStoreCancelBuyNetTask(giftStoreItemid);
+			LuaObject.pushValue(l, true);
+			LuaObject.pushValue(l, o);
+			result = 2;
+		}
+		catch (Exception e)
+		{
+			result = LuaObject.error(l, e);
+		}
+		return result;
+	}
+
+	// Token: 0x0601E272 RID: 123506 RVA: 0x009ABEFC File Offset: 0x009AA0FC
+	[Preserve]
+	public static void reg(IntPtr l)
+	{
+		LuaObject.getTypeTable(l, "BlackJack.ProjectL.UI.GiftStoreCancelBuyNetTask");
+		if (Lua_BlackJack_ProjectL_UI_GiftStoreCancelBuyNetTask.<>f__mg$cache0 == null)
+		{
+			Lua_BlackJack_ProjectL_UI_GiftStoreCancelBuyNetTask.<>f__mg$cache0 = new LuaCSFunction(Lua_BlackJack_ProjectL_UI_GiftStoreCancelBuyNetTask.constructor);
+		}
+		LuaObject.createTypeMetatable(l, Lua_BlackJack_ProjectL_UI_GiftStoreCancelBuyNetTask.<>f__mg$cache0, typeof(GiftStoreCancelBuyNetTask), typeof(UINetTask));
+	}
+
+	// Token: 0x04014387 RID: 82823
+	[CompilerGenerated]
+	private static LuaCSFunction <>f__mg$cache0;
+}
